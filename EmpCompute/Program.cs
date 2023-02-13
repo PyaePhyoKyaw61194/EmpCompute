@@ -1,5 +1,4 @@
-﻿
-using EmpCompute;
+﻿using EmpCompute.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 

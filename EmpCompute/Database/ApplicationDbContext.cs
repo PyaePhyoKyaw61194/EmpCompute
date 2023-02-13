@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using EmpCompute.Entity;
 using Microsoft.Extensions.Configuration;
 
-namespace EmpCompute
+namespace EmpCompute.Database
 {
     public class ApplicationDbContext : DbContext
     {

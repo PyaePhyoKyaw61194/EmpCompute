@@ -5,10 +5,6 @@ VisualStudioVersion = 25.0.1704.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpCompute", "EmpCompute\EmpCompute.csproj", "{F7E7C35A-E444-4855-A260-A90800C68366}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpCompute.Services", "EmpCompute.Services\EmpCompute.Services.csproj", "{4E4C2654-39E4-4E0C-911F-65CCA565B091}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpCompute.Persistance", "EmpCompute.Persistance\EmpCompute.Persistance.csproj", "{5446919C-A138-437B-BA53-F5D1C7BF0A9B}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmpCompute.Entity", "EmpCompute.Entity\EmpCompute.Entity.csproj", "{7244C868-E4D2-464D-B75A-AD63247C95F9}"
 EndProject
 Global
@@ -21,14 +17,6 @@ Global
 		{F7E7C35A-E444-4855-A260-A90800C68366}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7E7C35A-E444-4855-A260-A90800C68366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7E7C35A-E444-4855-A260-A90800C68366}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4E4C2654-39E4-4E0C-911F-65CCA565B091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E4C2654-39E4-4E0C-911F-65CCA565B091}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E4C2654-39E4-4E0C-911F-65CCA565B091}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E4C2654-39E4-4E0C-911F-65CCA565B091}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5446919C-A138-437B-BA53-F5D1C7BF0A9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5446919C-A138-437B-BA53-F5D1C7BF0A9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5446919C-A138-437B-BA53-F5D1C7BF0A9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5446919C-A138-437B-BA53-F5D1C7BF0A9B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7244C868-E4D2-464D-B75A-AD63247C95F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7244C868-E4D2-464D-B75A-AD63247C95F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7244C868-E4D2-464D-B75A-AD63247C95F9}.Release|Any CPU.ActiveCfg = Release|Any CPU

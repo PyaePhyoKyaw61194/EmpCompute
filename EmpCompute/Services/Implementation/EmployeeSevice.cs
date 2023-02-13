@@ -1,6 +1,6 @@
 ﻿using System;
+using EmpCompute.Database;
 using EmpCompute.Entity;
-using EmpCompute.Persistance;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
