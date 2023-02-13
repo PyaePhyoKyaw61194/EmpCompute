@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EmpCompute.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230213152829_InitialCreate3")]
-    partial class InitialCreate3
+    [Migration("20230213165101_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -113,7 +113,7 @@ namespace EmpCompute.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Employees");
+                    b.ToTable("employee");
                 });
 
             modelBuilder.Entity("EmpCompute.Entity.PaymentRecord", b =>
@@ -195,7 +195,7 @@ namespace EmpCompute.Migrations
 
                     b.HasIndex("TaxYearId");
 
-                    b.ToTable("PaymentRecords");
+                    b.ToTable("paymentrecord");
                 });
 
             modelBuilder.Entity("EmpCompute.Entity.TaxYear", b =>
@@ -212,7 +212,7 @@ namespace EmpCompute.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TaxYears");
+                    b.ToTable("taxyear");
                 });
 
             modelBuilder.Entity("EmpCompute.Entity.PaymentRecord", b =>

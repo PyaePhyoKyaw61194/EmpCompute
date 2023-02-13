@@ -1,8 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EmpCompute.Entity
 {
+    [Table("employee")]
     public class Employee
     {
         public int Id { get; set; }

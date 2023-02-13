@@ -13,7 +13,7 @@ namespace EmpCompute.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Employees",
+                name: "employee",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -40,11 +40,11 @@ namespace EmpCompute.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Employees", x => x.Id);
+                    table.PrimaryKey("PK_employee", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "TaxYears",
+                name: "taxyear",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -53,11 +53,11 @@ namespace EmpCompute.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TaxYears", x => x.Id);
+                    table.PrimaryKey("PK_taxyear", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "PaymentRecords",
+                name: "paymentrecord",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
@@ -85,29 +85,29 @@ namespace EmpCompute.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PaymentRecords", x => x.Id);
+                    table.PrimaryKey("PK_paymentrecord", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PaymentRecords_Employees_EmployeeId",
+                        name: "FK_paymentrecord_employee_EmployeeId",
                         column: x => x.EmployeeId,
-                        principalTable: "Employees",
+                        principalTable: "employee",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PaymentRecords_TaxYears_TaxYearId",
+                        name: "FK_paymentrecord_taxyear_TaxYearId",
                         column: x => x.TaxYearId,
-                        principalTable: "TaxYears",
+                        principalTable: "taxyear",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_PaymentRecords_EmployeeId",
-                table: "PaymentRecords",
+                name: "IX_paymentrecord_EmployeeId",
+                table: "paymentrecord",
                 column: "EmployeeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PaymentRecords_TaxYearId",
-                table: "PaymentRecords",
+                name: "IX_paymentrecord_TaxYearId",
+                table: "paymentrecord",
                 column: "TaxYearId");
         }
 
@@ -115,13 +115,13 @@ namespace EmpCompute.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PaymentRecords");
+                name: "paymentrecord");
 
             migrationBuilder.DropTable(
-                name: "Employees");
+                name: "employee");
 
             migrationBuilder.DropTable(
-                name: "TaxYears");
+                name: "taxyear");
         }
     }
 }
