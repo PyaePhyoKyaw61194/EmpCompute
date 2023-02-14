@@ -22,7 +22,7 @@ namespace EmpCompute.Models
 
         public string Gender { get; set; }
         [Display(Name = "Photo")]
-        public IFormFile ImageUrl { get; set; }
+        public IFormFile? ImageUrl { get; set; }
         [DataType(DataType.Date), Display(Name = "Date Of Birth")]
         public DateTime DOB { get; set; }
         [DataType(DataType.Date), Display(Name = "Date Joined")]

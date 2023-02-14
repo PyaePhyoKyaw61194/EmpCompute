@@ -114,6 +114,7 @@ namespace EmpCompute.Controllers
                 Phone = employee.Phone,
                 Postcode = employee.Postcode,
                 Designation = employee.Designation,
+
             };
             return View(model);
         }
@@ -136,7 +137,7 @@ namespace EmpCompute.Controllers
                 employee.NationalInsuranceNo = model.NationalInsuranceNo;
                 employee.Gender = model.Gender;
                 employee.Email = model.Email;
-                employee.DOB = model.DOB;
+                employee.DOB = model.DOB.ToUniversalTime();
                 employee.DateJoined = model.DateJoined.ToUniversalTime();
                 employee.Phone = model.Phone;
                 employee.Designation = model.Designation;
@@ -157,6 +158,7 @@ namespace EmpCompute.Controllers
                     await model.ImageUrl.CopyToAsync(new FileStream(path, FileMode.Create));
                     employee.ImageUrl = "/" + uploadDir + "/" + fileName;
                 }
+
                 await _employeeService.UpdateAsync(employee);
                 return RedirectToAction(nameof(Index));
             }
