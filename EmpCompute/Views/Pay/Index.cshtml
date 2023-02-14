@@ -16,7 +16,7 @@
                         <div class="col-md-12 table-responsive-md">
                             <a class="btn btn-xs btn-outline-success float-md-right" asp-action="Create"> New Pay</a>
 
-                            <table class="table table-striped">
+                            <table class="table ">
                                 <thead>
                                     <tr>
                                         <th>Employee</th>
@@ -44,7 +44,7 @@
                                             <td>@item.PayMonth</td>
                                             <td>@item.Year</td>
                                             <td>@item.TotalEarnings.ToString("C")</td>
-                                            <td>@item.TotalDeduction.ToString("c")</td>
+                                            <td>@item.TotalDeduction.ToString("C")</td>
                                             <td>@item.NetPayment.ToString("C")</td>
                                             <td>
                                                 

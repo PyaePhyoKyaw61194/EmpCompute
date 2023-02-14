@@ -3,6 +3,7 @@ using EmpCompute.Services;
 using EmpCompute.Services.Implementation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Rotativa.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,11 +18,11 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IPayComputationService, PayComputationService>();
 builder.Services.AddScoped<INationalInsuranceContributionService, NationalInsuranceContributionService>();
 builder.Services.AddScoped<ITaxService, TaxService>();
-
-
+RotativaConfiguration.Setup((Microsoft.AspNetCore.Hosting.IHostingEnvironment)builder.Environment);
 
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

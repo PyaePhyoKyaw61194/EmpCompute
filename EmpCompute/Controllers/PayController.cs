@@ -2,7 +2,7 @@ using EmpCompute.Entity;
 using EmpCompute.Models;
 using EmpCompute.Services;
 using Microsoft.AspNetCore.Mvc;
-
+using Rotativa.AspNetCore;
 namespace EmpCompute.Controllers
 {
     public class PayController : Controller
@@ -72,7 +72,7 @@ namespace EmpCompute.Controllers
                     EmployeeId = model.EmployeeId,
                     FullName = _employeeService.GetById(model.EmployeeId).FullName,
                     NiNo = _employeeService.GetById(model.EmployeeId).NationalInsuranceNo,
-                    PayDate = model.PayDate,
+                    PayDate = model.PayDate.ToUniversalTime(),
                     PayMonth = model.PayMonth,
                     TaxYearId = model.TaxYearId,
                     TaxCode = model.TaxCode,
@@ -177,13 +177,15 @@ namespace EmpCompute.Controllers
             return View(model);
         }
 
-        /*  public IActionResult GeneratePayslipPdf(int id)
-         {
-             var payslip = new ActionAsPdf("Payslip", new { id = id })
-             {
-                 FileName = "payslip.pdf"
-             };
-             return payslip;
-         } */
+        public IActionResult GeneratePayslipPdf(int id)
+        {
+            /*   Rotativa.AspNetCore.ViewAsPdf viewAsPdf = new Rotativa.AspNetCore.ViewAsPdf(model);
+              byte[] pdfData = await viewAsPdf.BuildFile(ControllerContext); */
+            var payslip = new ViewAsPdf("Payslip", new { id = id })
+            {
+                FileName = "payslip.pdf"
+            };
+            return payslip;
+        }
     }
 }
