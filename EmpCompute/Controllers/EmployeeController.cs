@@ -29,7 +29,7 @@ namespace EmpCompute.Controllers
                 Gender = employee.Gender,
                 Designation = employee.Designation,
                 City = employee.City,
-                DateJoined = employee.DateJoined
+                DateJoined = employee.DateJoined,
             }).ToList();
             return View(employees);
         }
@@ -57,8 +57,8 @@ namespace EmpCompute.Controllers
                     FullName = model.FullName,
                     Gender = model.Gender,
                     Email = model.Email,
-                    DOB = model.DOB,
-                    DateJoined = model.DateJoined,
+                    DOB = model.DOB.ToUniversalTime(),
+                    DateJoined = model.DateJoined.ToUniversalTime(),
                     NationalInsuranceNo = model.NationalInsuranceNo,
                     PaymentMethod = model.PaymentMethod,
                     StudentLoan = model.StudentLoan,
@@ -137,7 +137,7 @@ namespace EmpCompute.Controllers
                 employee.Gender = model.Gender;
                 employee.Email = model.Email;
                 employee.DOB = model.DOB;
-                employee.DateJoined = model.DateJoined;
+                employee.DateJoined = model.DateJoined.ToUniversalTime();
                 employee.Phone = model.Phone;
                 employee.Designation = model.Designation;
                 employee.PaymentMethod = model.PaymentMethod;
