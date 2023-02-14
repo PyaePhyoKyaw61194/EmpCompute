@@ -32,9 +32,9 @@ namespace EmpCompute.Controllers
             _nationalInsuranceContributionService = nationalInsuranceContributionService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var payRecords = _payComputationService.GetAll().Select(pay => new PaymentRecordIndexViewModel
+            var payRecords = (await _payComputationService.GetAll()).Select(pay => new PaymentRecordIndexViewModel
             {
                 Id = pay.Id,
                 EmployeeId = pay.EmployeeId,

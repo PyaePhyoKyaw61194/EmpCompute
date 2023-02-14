@@ -2,6 +2,7 @@
 using EmpCompute.Entity;
 using EmpCompute.Database;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmpCompute.Services.Implementation
 {
@@ -34,7 +35,7 @@ namespace EmpCompute.Services.Implementation
             await _context.SaveChangesAsync();
         }
 
-        public IEnumerable<PaymentRecord> GetAll() => _context.PaymentRecords.OrderBy(p => p.EmployeeId);
+        public async Task<IEnumerable<PaymentRecord>> GetAll() => await _context.PaymentRecords.OrderBy(p => p.EmployeeId).ToListAsync();
 
 
         public IEnumerable<SelectListItem> GetAllTaxYear()

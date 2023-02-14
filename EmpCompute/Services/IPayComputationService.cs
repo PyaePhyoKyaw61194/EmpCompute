@@ -4,12 +4,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace EmpCompute.Services
 {
-	public interface IPayComputationService
-	{
+    public interface IPayComputationService
+    {
         Task CreateAsync(PaymentRecord paymentRecord);
         PaymentRecord GetById(int id);
         TaxYear GetTaxYearById(int id);
-        IEnumerable<PaymentRecord> GetAll();
+        Task<IEnumerable<PaymentRecord>> GetAll();
         IEnumerable<SelectListItem> GetAllTaxYear();
         decimal OvertimeHours(decimal hoursWorked, decimal contractualHours);
         decimal ContractualEarnings(decimal contractualHours, decimal hoursWorked, decimal hourlyRate);
