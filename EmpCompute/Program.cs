@@ -14,6 +14,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<IPayComputationService, PayComputationService>();
+builder.Services.AddScoped<INationalInsuranceContributionService, NationalInsuranceContributionService>();
+builder.Services.AddScoped<ITaxService, TaxService>();
 
 
 
