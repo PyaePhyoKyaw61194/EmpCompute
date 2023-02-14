@@ -1,14 +1,21 @@
 ﻿using EmpCompute.Database;
+using EmpCompute.Services;
+using EmpCompute.Services.Implementation;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var url = builder.Configuration.GetConnectionString("DefaultConnection");
-// Add services to the container.
+
+// Add services to the container. 
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+
+
 
 
 var app = builder.Build();
