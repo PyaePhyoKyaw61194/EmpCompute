@@ -3,7 +3,7 @@ using EmpCompute.Models;
 using EmpCompute.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Rotativa.AspNetCore;
+
 namespace EmpCompute.Controllers
 {
     [Authorize(Roles = "Admin,Manager")]
@@ -179,17 +179,6 @@ namespace EmpCompute.Controllers
                 NetPayment = paymentRecord.NetPayment
             };
             return View(model);
-        }
-
-        public IActionResult GeneratePayslipPdf(int id)
-        {
-            /*   Rotativa.AspNetCore.ViewAsPdf viewAsPdf = new Rotativa.AspNetCore.ViewAsPdf(model);
-              byte[] pdfData = await viewAsPdf.BuildFile(ControllerContext); */
-            var payslip = new ViewAsPdf("Payslip", new { id = id })
-            {
-                FileName = "payslip.pdf"
-            };
-            return payslip;
         }
     }
 }

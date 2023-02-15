@@ -42,9 +42,7 @@ builder.Services.AddScoped<INationalInsuranceContributionService, NationalInsura
 builder.Services.AddScoped<ITaxService, TaxService>();
 
 builder.Services.AddMvc();
-/* RotativaConfiguration.Setup((Microsoft.AspNetCore.Hosting.IHostingEnvironment)builder.Environment);
 
- */
 
 var app = builder.Build();
 var scope = app.Services.CreateScope();
