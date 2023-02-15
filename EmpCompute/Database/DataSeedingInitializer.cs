@@ -5,8 +5,17 @@ namespace EmpCompute.Database
 {
     public static class DataSeedingInitializer
     {
-        public static async Task UserAndRoleSeedAsync(UserManager<IdentityUser> userManager,
-                                                 RoleManager<IdentityRole> roleManager)
+
+        public static UserManager<IdentityUser> userManager;
+        public static RoleManager<IdentityRole> roleManager;
+
+        /*    public DataSeedingInitializer(UserManager<IdentityUser> userManager,
+           RoleManager<IdentityRole> roleManager)
+           {
+               this.userManager = userManager;
+               this.roleManager = roleManager;
+           } */
+        public static async Task UserAndRoleSeedAsync()
         {
             string[] roles = { "Admin", "Manager", "Staff" };
             foreach (var role in roles)

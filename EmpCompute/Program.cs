@@ -19,6 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDefaultIdentity<IdentityUser>()
 .AddRoles<IdentityRole>()
 .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.Configure<IdentityOptions>(options =>
      {
          //Default Password Settings
@@ -38,13 +39,18 @@ builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<IPayComputationService, PayComputationService>();
 builder.Services.AddScoped<INationalInsuranceContributionService, NationalInsuranceContributionService>();
 builder.Services.AddScoped<ITaxService, TaxService>();
+
 builder.Services.AddMvc();
 /* RotativaConfiguration.Setup((Microsoft.AspNetCore.Hosting.IHostingEnvironment)builder.Environment);
 
  */
+
 var app = builder.Build();
-
-
+var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+DataSeedingInitializer.userManager = services.GetService<UserManager<IdentityUser>>();
+DataSeedingInitializer.roleManager = services.GetService<RoleManager<IdentityRole>>();
+DataSeedingInitializer.UserAndRoleSeedAsync().Wait();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -67,5 +73,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.MapRazorPages();
+
+
 app.Run();
 
