@@ -18,7 +18,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDefaultIdentity<IdentityUser>()
 .AddRoles<IdentityRole>()
-.AddEntityFrameworkStores<ApplicationDbContext>();
+.AddEntityFrameworkStores<ApplicationDbContext>()
+   .AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(options =>
      {
@@ -65,8 +66,10 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-/* app.UseAuthorization(); */
+// Important: UseAuthentication first then UseAuthorization
 app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.MapControllerRoute(
     name: "default",
