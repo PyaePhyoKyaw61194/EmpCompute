@@ -3,6 +3,7 @@ using System;
 using EmpCompute.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EmpCompute.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230215031901_mig2")]
+    partial class mig2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,7 +113,7 @@ namespace EmpCompute.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("employee", (string)null);
+                    b.ToTable("employee");
                 });
 
             modelBuilder.Entity("EmpCompute.Entity.PaymentRecord", b =>
@@ -192,7 +195,7 @@ namespace EmpCompute.Migrations
 
                     b.HasIndex("TaxYearId");
 
-                    b.ToTable("paymentrecord", (string)null);
+                    b.ToTable("paymentrecord");
                 });
 
             modelBuilder.Entity("EmpCompute.Entity.TaxYear", b =>
@@ -209,7 +212,7 @@ namespace EmpCompute.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("taxyear", (string)null);
+                    b.ToTable("taxyear");
                 });
 
             modelBuilder.Entity("EmpCompute.Entity.PaymentRecord", b =>
